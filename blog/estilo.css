@@ -21,7 +21,7 @@ a { color: var(--verde-medio); }
 }
 .marca { color: #fff; text-decoration: none; font-weight: 800; font-size: 1.15rem; white-space: nowrap; }
 .marca span { color: var(--verde-limao); }
-.topo nav { display: flex; gap: 18px; }
+.topo nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 18px; }
 .topo nav a { color: #fff; text-decoration: none; font-weight: 500; font-size: 0.95rem; }
 .topo nav a:hover { color: var(--verde-limao); }
 
@@ -80,6 +80,11 @@ article strong { color: #1f1f1f; }
 .card-blog p { font-size: 0.9rem; color: #555; flex: 1; }
 .card-blog .data { margin: 0; font-size: 0.78rem; }
 .card-blog .ler { font-weight: 700; font-size: 0.85rem; color: var(--verde-medio); text-decoration: none; }
+
+@media (max-width: 700px) {
+  .topo nav { gap: 6px 12px; justify-content: center; }
+  .topo nav a { font-size: 0.88rem; }
+}
 
 @media (max-width: 560px) {
   h1 { font-size: 1.6rem; }
