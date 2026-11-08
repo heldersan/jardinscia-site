@@ -1,1 +1,619 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Serviço profissional de corte de grama em Tatuí-SP e região. Atendimento rápido, preço justo e gramado impecável. Ligue (11) 98870-0322">
+    <meta name="keywords" content="corte de grama Tatuí, jardineiro Tatuí, roçagem, poda, paisagismo, grama">
+    <title>Gramado Perfeito | Corte de Grama em Tatuí-SP e Região</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+        :root {
+            --verde-escuro: #1b5e20;
+            --verde-medio: #2e7d32;
+            --verde-claro: #4caf50;
+            --verde-limao: #8bc34a;
+            --amarelo: #ffc107;
+            --branco: #fff;
+            --cinza-claro: #f5f5f5;
+            --cinza-texto: #333;
+        }
+        html { scroll-behavior: smooth; }
+        body { color: var(--cinza-texto); line-height: 1.6; overflow-x: hidden; }
 
+        /* HEADER */
+        header {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(27, 94, 32, 0.97);
+            z-index: 1000; padding: 15px 5%;
+            display: flex; justify-content: space-between; align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        .logo {
+            font-size: 1.4rem; font-weight: 800; color: var(--branco);
+            display: flex; align-items: center; gap: 8px;
+        }
+        .logo i { color: var(--verde-limao); }
+        .logo span { color: var(--verde-limao); }
+        nav ul { display: flex; list-style: none; gap: 30px; }
+        nav a {
+            color: var(--branco); text-decoration: none;
+            font-weight: 500; transition: color 0.3s;
+        }
+        nav a:hover { color: var(--verde-limao); }
+        .btn-header {
+            background: var(--verde-limao); color: var(--verde-escuro);
+            padding: 10px 20px; border-radius: 30px; text-decoration: none;
+            font-weight: 700; transition: all 0.3s;
+        }
+        .btn-header:hover { background: var(--amarelo); transform: scale(1.05); }
+        .menu-toggle {
+            display: none; font-size: 1.8rem; color: var(--branco);
+            cursor: pointer; background: none; border: none;
+        }
+
+        /* HERO */
+        .hero {
+            height: 100vh; min-height: 600px;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(27,94,32,0.75)),
+                        url('https://images.unsplash.com/photo-1592417817098-8fd3d9eb14a5?w=1600&q=80') center/cover;
+            display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 0 20px; color: var(--branco);
+        }
+        .hero-content { max-width: 850px; animation: fadeInUp 1s ease; }
+        .hero h1 { font-size: 3.2rem; font-weight: 800; margin-bottom: 20px; line-height: 1.2; }
+        .hero h1 span { color: var(--verde-limao); }
+        .hero p { font-size: 1.3rem; margin-bottom: 30px; opacity: 0.95; }
+        .hero-buttons { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            display: inline-block; padding: 15px 35px; border-radius: 50px;
+            text-decoration: none; font-weight: 700; font-size: 1.05rem;
+            transition: all 0.3s; cursor: pointer; border: none;
+        }
+        .btn-primary { background: var(--verde-limao); color: var(--verde-escuro); }
+        .btn-primary:hover { background: var(--amarelo); transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .btn-secondary { background: transparent; color: var(--branco); border: 2px solid var(--branco); }
+        .btn-secondary:hover { background: var(--branco); color: var(--verde-escuro); }
+
+        /* SEÇÕES */
+        section { padding: 80px 5%; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.3rem; color: var(--verde-escuro); margin-bottom: 15px; }
+        .section-title p { font-size: 1.1rem; color: #666; max-width: 700px; margin: 0 auto; }
+        .section-title::after {
+            content: ''; display: block; width: 80px; height: 4px;
+            background: var(--verde-limao); margin: 20px auto 0; border-radius: 2px;
+        }
+
+        /* SERVIÇOS */
+        .servicos { background: var(--cinza-claro); }
+        .grid-servicos {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px; max-width: 1200px; margin: 0 auto;
+        }
+        .card-servico {
+            background: var(--branco); padding: 35px 25px; border-radius: 15px;
+            text-align: center; transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07); border-top: 4px solid var(--verde-claro);
+        }
+        .card-servico:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+        .card-servico i { font-size: 2.8rem; color: var(--verde-claro); margin-bottom: 20px; }
+        .card-servico h3 { font-size: 1.3rem; color: var(--verde-escuro); margin-bottom: 12px; }
+        .card-servico p { color: #666; font-size: 0.95rem; }
+
+        /* DIFERENCIAIS */
+        .diferenciais { background: var(--branco); }
+        .grid-diferenciais {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px; max-width: 1200px; margin: 0 auto;
+        }
+        .card-dif {
+            text-align: center; padding: 25px; border-radius: 12px;
+            background: linear-gradient(135deg, #f1f8e9, #e8f5e9);
+            transition: transform 0.3s;
+        }
+        .card-dif:hover { transform: scale(1.05); }
+        .card-dif i { font-size: 2.2rem; color: var(--verde-medio); margin-bottom: 12px; }
+        .card-dif h3 { color: var(--verde-escuro); font-size: 1.1rem; margin-bottom: 8px; }
+        .card-dif p { font-size: 0.9rem; color: #555; }
+
+        /* SOBRE */
+        .sobre { background: var(--cinza-claro); }
+        .sobre-container {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 50px; align-items: center; max-width: 1200px; margin: 0 auto;
+        }
+        .sobre-img {
+            height: 400px; border-radius: 15px;
+            background: url('https://images.unsplash.com/photo-1558904541-efa843a96f01?w=800&q=80') center/cover;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        .sobre-texto h2 { font-size: 2rem; color: var(--verde-escuro); margin-bottom: 20px; }
+        .sobre-texto p { margin-bottom: 15px; color: #555; }
+        .sobre-texto ul { list-style: none; margin-top: 20px; }
+        .sobre-texto li { padding: 8px 0; color: #444; display: flex; align-items: center; gap: 10px; }
+        .sobre-texto li i { color: var(--verde-claro); font-size: 1.2rem; }
+
+        /* ÁREA DE ATENDIMENTO */
+        .area { background: var(--branco); }
+        .area-box {
+            max-width: 900px; margin: 0 auto; text-align: center;
+            background: linear-gradient(135deg, var(--verde-escuro), var(--verde-medio));
+            color: var(--branco); padding: 50px 30px; border-radius: 20px;
+        }
+        .area-box h3 { font-size: 1.6rem; margin-bottom: 15px; }
+        .area-box p { font-size: 1.1rem; margin-bottom: 25px; opacity: 0.95; }
+        .tags-area { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+        .tag {
+            background: rgba(255,255,255,0.2); padding: 8px 20px;
+            border-radius: 30px; font-size: 0.95rem; font-weight: 500;
+        }
+
+        /* DEPOIMENTOS */
+        .depoimentos { background: var(--cinza-claro); }
+        .grid-depoimentos {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px; max-width: 1200px; margin: 0 auto;
+        }
+        .card-depoimento {
+            background: var(--branco); padding: 30px; border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07); position: relative;
+        }
+        .card-depoimento .stars { color: var(--amarelo); margin-bottom: 15px; }
+        .card-depoimento p { font-style: italic; color: #555; margin-bottom: 20px; }
+        .card-depoimento .autor { display: flex; align-items: center; gap: 12px; }
+        .card-depoimento .avatar {
+            width: 50px; height: 50px; border-radius: 50%;
+            background: var(--verde-claro); display: flex; align-items: center;
+            justify-content: center; color: var(--branco); font-weight: 700; font-size: 1.2rem;
+        }
+        .card-depoimento .autor strong { display: block; color: var(--verde-escuro); }
+        .card-depoimento .autor small { color: #888; }
+
+        /* CONTATO */
+        .contato {
+            background: linear-gradient(rgba(27,94,32,0.95), rgba(27,94,32,0.95)),
+                        url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?w=1600&q=80') center/cover;
+            color: var(--branco);
+        }
+        .contato .section-title h2, .contato .section-title p { color: var(--branco); }
+        .contato-container {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 50px; max-width: 1100px; margin: 0 auto;
+        }
+        .contato-info h3 { font-size: 1.5rem; margin-bottom: 25px; }
+        .contato-item {
+            display: flex; align-items: flex-start; gap: 15px;
+            margin-bottom: 25px; padding: 15px;
+            background: rgba(255,255,255,0.1); border-radius: 10px;
+            transition: background 0.3s;
+        }
+        .contato-item:hover { background: rgba(255,255,255,0.2); }
+        .contato-item i {
+            font-size: 1.5rem; color: var(--verde-limao);
+            background: rgba(255,255,255,0.15); width: 50px; height: 50px;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; flex-shrink: 0;
+        }
+        .contato-item h4 { margin-bottom: 5px; font-size: 1rem; }
+        .contato-item p, .contato-item a {
+            color: rgba(255,255,255,0.9); text-decoration: none;
+            font-size: 0.95rem;
+        }
+        .contato-item a:hover { color: var(--verde-limao); }
+
+        .form-contato {
+            background: var(--branco); padding: 40px 30px; border-radius: 15px;
+            color: var(--cinza-texto);
+        }
+        .form-contato h3 { color: var(--verde-escuro); margin-bottom: 25px; font-size: 1.4rem; }
+        .form-group { margin-bottom: 18px; }
+        .form-group label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 0.9rem; color: #444; }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%; padding: 12px 15px; border: 2px solid #ddd;
+            border-radius: 8px; font-size: 1rem; transition: border-color 0.3s;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none; border-color: var(--verde-claro);
+        }
+        .form-group textarea { resize: vertical; min-height: 90px; }
+        .btn-form {
+            width: 100%; padding: 14px; background: var(--verde-medio);
+            color: var(--branco); border: none; border-radius: 8px;
+            font-size: 1.05rem; font-weight: 700; cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn-form:hover { background: var(--verde-escuro); }
+
+        /* FOOTER */
+        footer {
+            background: #0d2b0f; color: rgba(255,255,255,0.8);
+            padding: 40px 5% 20px; text-align: center;
+        }
+        .footer-content { max-width: 1200px; margin: 0 auto; }
+        .footer-logo { font-size: 1.5rem; font-weight: 800; color: var(--branco); margin-bottom: 15px; }
+        .footer-logo span { color: var(--verde-limao); }
+        .footer-social { display: flex; gap: 15px; justify-content: center; margin: 20px 0; }
+        .footer-social a {
+            width: 45px; height: 45px; border-radius: 50%;
+            background: rgba(255,255,255,0.1); color: var(--branco);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; transition: all 0.3s;
+        }
+        .footer-social a:hover { background: var(--verde-limao); color: var(--verde-escuro); transform: translateY(-3px); }
+        .footer-copy { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; margin-top: 20px; font-size: 0.9rem; }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float {
+            position: fixed; bottom: 25px; right: 25px;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: #25d366; color: var(--branco);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 2rem; box-shadow: 0 5px 20px rgba(37,211,102,0.5);
+            z-index: 999; text-decoration: none; transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 5px 20px rgba(37,211,102,0.5); }
+            50% { box-shadow: 0 5px 30px rgba(37,211,102,0.9); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 900px) {
+            .menu-toggle { display: block; }
+            nav {
+                position: absolute; top: 100%; left: 0; width: 100%;
+                background: var(--verde-escuro); max-height: 0; overflow: hidden;
+                transition: max-height 0.4s ease;
+            }
+            nav.active { max-height: 400px; }
+            nav ul { flex-direction: column; padding: 20px; gap: 15px; }
+            .btn-header { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.05rem; }
+            .sobre-container, .contato-container { grid-template-columns: 1fr; }
+            .sobre-img { height: 300px; }
+            section { padding: 60px 5%; }
+            .section-title h2 { font-size: 1.8rem; }
+        }
+        @media (max-width: 500px) {
+            .hero h1 { font-size: 1.8rem; }
+            .hero-buttons { flex-direction: column; }
+            .btn { width: 100%; }
+            .logo { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-leaf"></i> Gramado<span>Perfeito</span>
+        </div>
+        <button class="menu-toggle" onclick="document.querySelector('nav').classList.toggle('active')" aria-label="Menu">
+            <i class="fas fa-bars"></i>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#diferenciais">Diferenciais</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+        <a href="https://wa.me/5511988700322" class="btn-header" target="_blank">
+            <i class="fab fa-whatsapp"></i> Orçamento
+        </a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Seu gramado <span>impecável</span> em Tatuí e Região</h1>
+            <p>Corte de grama profissional, rápido e com preço justo. Deixe seu jardim bonito sem preocupação!</p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/5511988700322?text=Olá!%20Gostaria%20de%20um%20orçamento%20para%20corte%20de%20grama." class="btn btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Pedir Orçamento Grátis
+                </a>
+                <a href="#servicos" class="btn btn-secondary">Ver Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section class="servicos" id="servicos">
+        <div class="section-title">
+            <h2>Nossos Serviços</h2>
+            <p>Tudo o que seu jardim precisa em um só lugar</p>
+        </div>
+        <div class="grid-servicos">
+            <div class="card-servico">
+                <i class="fas fa-cut"></i>
+                <h3>Corte de Grama</h3>
+                <p>Corte uniforme e preciso com equipamentos profissionais, deixando seu gramado impecável.</p>
+            </div>
+            <div class="card-servico">
+                <i class="fas fa-seedling"></i>
+                <h3>Roçagem</h3>
+                <p>Limpeza de terrenos e áreas verdes com roçadeira, ideal para mato alto e terrenos grandes.</p>
+            </div>
+            <div class="card-servico">
+                <i class="fas fa-tree"></i>
+                <h3>Poda de Árvores</h3>
+                <p>Poda técnica e segura de árvores e arbustos, mantendo a saúde e beleza das plantas.</p>
+            </div>
+            <div class="card-servico">
+                <i class="fas fa-spa"></i>
+                <h3>Paisagismo</h3>
+                <p>Projeto e manutenção de jardins, criando ambientes verdes harmoniosos e agradáveis.</p>
+            </div>
+            <div class="card-servico">
+                <i class="fas fa-tint"></i>
+                <h3>Irrigação</h3>
+                <p>Instalação e manutenção de sistemas de irrigação para manter seu jardim sempre verde.</p>
+            </div>
+            <div class="card-servico">
+                <i class="fas fa-broom"></i>
+                <h3>Limpeza de Terrenos</h3>
+                <p>Limpeza completa de terrenos, quintais e áreas externas com remoção de resíduos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS -->
+    <section class="diferenciais" id="diferenciais">
+        <div class="section-title">
+            <h2>Por Que Nos Escolher?</h2>
+            <p>Qualidade e confiança em cada serviço</p>
+        </div>
+        <div class="grid-diferenciais">
+            <div class="card-dif">
+                <i class="fas fa-clock"></i>
+                <h3>Pontualidade</h3>
+                <p>Chegamos na hora combinada, sem atrasos.</p>
+            </div>
+            <div class="card-dif">
+                <i class="fas fa-dollar-sign"></i>
+                <h3>Preço Justo</h3>
+                <p>Orçamento transparente e sem surpresas.</p>
+            </div>
+            <div class="card-dif">
+                <i class="fas fa-award"></i>
+                <h3>Qualidade</h3>
+                <p>Serviço bem feito e acabamento impecável.</p>
+            </div>
+            <div class="card-dif">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Confiança</h3>
+                <p>Profissionais experientes e responsáveis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section class="sobre" id="sobre">
+        <div class="sobre-container">
+            <div class="sobre-img"></div>
+            <div class="sobre-texto">
+                <h2>Sobre Nós</h2>
+                <p>Somos uma empresa especializada em <strong>corte de grama e manutenção de jardins</strong> em Tatuí-SP e região. Trabalhamos com dedicação para transformar e manter seu espaço verde bonito e saudável.</p>
+                <p>Com anos de experiência no ramo, oferecemos atendimento personalizado, equipamentos modernos e profissionais qualificados para garantir a satisfação de cada cliente.</p>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> Atendimento em Tatuí e cidades vizinhas</li>
+                    <li><i class="fas fa-check-circle"></i> Orçamento gratuito e sem compromisso</li>
+                    <li><i class="fas fa-check-circle"></i> Equipe treinada e equipamentos de qualidade</li>
+                    <li><i class="fas fa-check-circle"></i> Garantia de satisfação em todos os serviços</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÁREA DE ATENDIMENTO -->
+    <section class="area">
+        <div class="area-box">
+            <h3><i class="fas fa-map-marker-alt"></i> Área de Atendimento</h3>
+            <p>Atendemos Tatuí-SP e toda a região próxima:</p>
+            <div class="tags-area">
+                <span class="tag">Tatuí</span>
+                <span class="tag">Cerquilho</span>
+                <span class="tag">Boituva</span>
+                <span class="tag">Cesário Lange</span>
+                <span class="tag">Pereiras</span>
+                <span class="tag">Porangaba</span>
+                <span class="tag">Quadra</span>
+                <span class="tag">Laranjal Paulista</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="depoimentos" id="depoimentos">
+        <div class="section-title">
+            <h2>O Que Dizem Nossos Clientes</h2>
+            <p>A satisfação de quem confia no nosso trabalho</p>
+        </div>
+        <div class="grid-depoimentos">
+            <div class="card-depoimento">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>"Serviço excelente! Deixaram meu quintal impecável e o preço foi muito justo. Recomendo demais!"</p>
+                <div class="autor">
+                    <div class="avatar">M</div>
+                    <div><strong>Maria Silva</strong><small>Tatuí-SP</small></div>
+                </div>
+            </div>
+            <div class="card-depoimento">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>"Pontuais, educados e muito profissionais. Meu gramado nunca ficou tão bonito. Voltarei a contratar!"</p>
+                <div class="autor">
+                    <div class="avatar">J</div>
+                    <div><strong>João Santos</strong><small>Cerquilho-SP</small></div>
+                </div>
+            </div>
+            <div class="card-depoimento">
+                <div class="stars">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                </div>
+                <p>"Contratei para limpar um terreno grande e fizeram um trabalho incrível. Rápido e com preço honesto!"</p>
+                <div class="autor">
+                    <div class="avatar">A</div>
+                    <div><strong>Ana Costa</strong><small>Boituva-SP</small></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section class="contato" id="contato">
+        <div class="section-title">
+            <h2>Entre em Contato</h2>
+            <p>Solicite seu orçamento gratuito agora mesmo!</p>
+        </div>
+        <div class="contato-container">
+            <div class="contato-info">
+                <h3>Fale Conosco</h3>
+                <div class="contato-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <div>
+                        <h4>WhatsApp</h4>
+                        <a href="https://wa.me/5511988700322" target="_blank">(11) 98870-0322</a>
+                    </div>
+                </div>
+                <div class="contato-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <h4>Telefone</h4>
+                        <a href="tel:+5511988700322">(11) 98870-0322</a>
+                    </div>
+                </div>
+                <div class="contato-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h4>Localização</h4>
+                        <p>Tatuí-SP e Região</p>
+                    </div>
+                </div>
+                <div class="contato-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <h4>Horário</h4>
+                        <p>Segunda a Sábado: 7h às 18h</p>
+                    </div>
+                </div>
+            </div>
+            <form class="form-contato" onsubmit="enviarWhats(event)">
+                <h3>Peça seu Orçamento</h3>
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" required placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" id="telefone" required placeholder="(11) 99999-9999">
+                </div>
+                <div class="form-group">
+                    <label for="servico">Serviço Desejado</label>
+                    <select id="servico" required>
+                        <option value="">Selecione...</option>
+                        <option>Corte de Grama</option>
+                        <option>Roçagem</option>
+                        <option>Poda de Árvores</option>
+                        <option>Paisagismo</option>
+                        <option>Irrigação</option>
+                        <option>Limpeza de Terreno</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem</label>
+                    <textarea id="mensagem" placeholder="Descreva o que precisa..."></textarea>
+                </div>
+                <button type="submit" class="btn-form">
+                    <i class="fab fa-whatsapp"></i> Enviar via WhatsApp
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo"><i class="fas fa-leaf"></i> Gramado<span>Perfeito</span></div>
+            <p>Corte de grama e manutenção de jardins em Tatuí-SP e região</p>
+            <div class="footer-social">
+                <a href="https://wa.me/5511988700322" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="tel:+5511988700322" aria-label="Telefone"><i class="fas fa-phone"></i></a>
+                <a href="mailto:contato@gramadoperfeito.com.br" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <div class="footer-copy">
+                &copy; <span id="ano"></span> Gramado Perfeito - Todos os direitos reservados. | Tatuí-SP
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/5511988700322?text=Olá!%20Gostaria%20de%20um%20orçamento." class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Ano automático no footer
+        document.getElementById('ano').textContent = new Date().getFullYear();
+
+        // Fechar menu ao clicar em link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+
+        // Envio do formulário via WhatsApp
+        function enviarWhats(e) {
+            e.preventDefault();
+            const nome = document.getElementById('nome').value;
+            const telefone = document.getElementById('telefone').value;
+            const servico = document.getElementById('servico').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            const texto = `*Novo Orçamento - Site*%0A%0A` +
+                `*Nome:* ${nome}%0A` +
+                `*Telefone:* ${telefone}%0A` +
+                `*Serviço:* ${servico}%0A` +
+                `*Mensagem:* ${mensagem || '(sem mensagem)'}`;
+
+            window.open(`https://wa.me/5511988700322?text=${texto}`, '_blank');
+        }
+
+        // Animação ao scroll (reveal simples)
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card-servico, .card-dif, .card-depoimento').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+
+</body>
+</html>
