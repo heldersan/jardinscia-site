@@ -1,22 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-    <url>
-        <loc>https://jardinscia-site.vercel.app/</loc>
-        <lastmod>2026-11-08T00:00:00-03:00</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>1.0</priority>
-
-        <xhtml:link rel="alternate" hreflang="pt-BR" href="https://jardinscia-site.vercel.app/"/>
-        <xhtml:link rel="alternate" hreflang="x-default" href="https://jardinscia-site.vercel.app/"/>
-
-        <image:image>
-            <image:loc>https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1200&amp;h=630&amp;fit=crop&amp;q=80</image:loc>
-            <image:title>Gramado aparado em jardim residencial</image:title>
-            <image:caption>Corte de grama e manutenção de jardins em Tatuí-SP e região</image:caption>
-        </image:image>
-    </url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://jardinscia-site.vercel.app/</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
 </urlset>
