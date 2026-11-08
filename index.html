@@ -788,7 +788,8 @@
         function enviarWhats(e) {
             e.preventDefault();
             const texto = textoOrcamento(dadosOrcamento());
-            window.open(`https://wa.me/5511988700322?text=${encodeURIComponent(texto)}`, '_blank');
+            // location.href em vez de window.open: evita bloqueio de pop-up em navegadores móveis
+            window.location.href = `https://wa.me/5511988700322?text=${encodeURIComponent(texto)}`;
         }
 
         // Alternativa por e-mail: abre o cliente de e-mail com os dados já preenchidos
