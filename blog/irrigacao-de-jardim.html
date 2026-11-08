@@ -25,6 +25,7 @@
 <body>
 <header class="topo">
   <a class="marca" href="../index.html"><span class="folha">&#127793;</span> Jardins <span>&amp;Cia</span></a>
+  <button class="menu-toggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
   <nav>
     <a href="../index.html">Início</a>
     <a href="../index.html#servicos">Serviços</a>
@@ -71,5 +72,13 @@
   <p><a href="https://wa.me/5511988700322" target="_blank" rel="noopener">WhatsApp (11) 98870-0322</a> &middot; <a href="mailto:helder.souza@proton.me">helder.souza@proton.me</a></p>
   <p class="copy">&copy; 2026 Jardins &amp; Cia &middot; <a href="../index.html">Voltar ao site</a> &middot; <a href="index.html">Blog</a></p>
 </footer>
+<script>
+  var botao = document.querySelector('.menu-toggle');
+  var menu = document.querySelector('.topo nav');
+  if (botao && menu) botao.addEventListener('click', function () {
+    menu.classList.toggle('active');
+    botao.setAttribute('aria-expanded', menu.classList.contains('active'));
+  });
+</script>
 </body>
 </html>
